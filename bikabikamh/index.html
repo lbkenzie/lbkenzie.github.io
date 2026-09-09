@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔咔哔咔漫画-哔咔哔咔漫画官网与阅读指南</title>
+    <meta name="description" content="哔咔哔咔漫画是深受二次元爱好者喜爱的漫画阅读平台，提供丰富的日漫、国漫、韩漫资源。了解哔咔哔咔漫画的功能特点、使用方式、常见问题与安全阅读指南。">
+    <meta name="keywords" content="哔咔哔咔漫画,哔咔漫画,哔咔哔咔,漫画阅读,二次元漫画,在线漫画">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #f8f9fc;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 顶部导航 */
+        .site-header {
+            background: linear-gradient(135deg, #6b46c1 0%, #9f7aea 50%, #d6bcfa 100%);
+            box-shadow: 0 4px 20px rgba(107, 70, 193, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+        .main-nav {
+            display: flex;
+            gap: 28px;
+        }
+        .main-nav a {
+            color: rgba(255,255,255,0.95);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+        .main-nav a:hover {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+        /* 移动端导航 */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+        /* 首屏 hero */
+        .hero {
+            background: linear-gradient(160deg, #faf5ff 0%, #ede9fe 50%, #ddd6fe 100%);
+            padding: 70px 0 60px;
+            text-align: center;
+            border-bottom: 1px solid #e9d5ff;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #553c9a;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .hero-sub {
+            font-size: 1.3rem;
+            color: #6b46c1;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        .hero-desc {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.05rem;
+            color: #4a5568;
+            background: rgba(255,255,255,0.7);
+            padding: 20px 28px;
+            border-radius: 16px;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 12px rgba(107,70,193,0.08);
+        }
+        .hero-btn {
+            display: inline-block;
+            background: #7c3aed;
+            color: white;
+            padding: 14px 42px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(124,58,237,0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .hero-btn:hover {
+            background: #6d28d9;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(124,58,237,0.4);
+        }
+        /* 内容区通用 */
+        .section {
+            padding: 60px 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 12px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #9f7aea, #6b46c1);
+        }
+        .section-sub {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        /* 功能卡片 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f0ebfa;
+            text-align: center;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(107,70,193,0.12);
+            border-color: #d6bcfa;
+        }
+        .feature-icon {
+            font-size: 2.8rem;
+            margin-bottom: 18px;
+        }
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: #44337a;
+        }
+        .feature-card p {
+            color: #5a6472;
+            font-size: 0.95rem;
+        }
+        /* 阅读指南区 */
+        .guide-wrap {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+        .step-item {
+            position: relative;
+            background: #faf5ff;
+            border-radius: 14px;
+            padding: 24px 18px;
+            text-align: center;
+        }
+        .step-num {
+            width: 40px;
+            height: 40px;
+            background: #7c3aed;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 16px;
+        }
+        .step-item h4 {
+            color: #44337a;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .step-item p {
+            font-size: 0.9rem;
+            color: #5a6472;
+        }
+        /* 内容双栏 */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .info-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #f0ebfa;
+        }
+        .info-panel h3 {
+            color: #553c9a;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-list {
+            list-style: none;
+        }
+        .info-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #e9e2f5;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #4a5568;
+        }
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        .info-list li::before {
+            content: "◆";
+            color: #9f7aea;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        /* 注意事项 */
+        .notice-box {
+            background: #fffbeb;
+            border-left: 5px solid #f59e0b;
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin: 30px 0;
+        }
+        .notice-box h3 {
+            color: #b45309;
+            margin-bottom: 14px;
+            font-size: 1.2rem;
+        }
+        .notice-box ul {
+            padding-left: 20px;
+        }
+        .notice-box li {
+            margin-bottom: 10px;
+            color: #7c5c18;
+        }
+        /* FAQ */
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 16px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            border: 1px solid #f0ebfa;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px 24px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #44337a;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fcfaff;
+            transition: background 0.2s;
+        }
+        .faq-question:hover {
+            background: #f6f1fd;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #9f7aea;
+            font-weight: 400;
+        }
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #4a5568;
+            border-top: 0 solid #f0ebfa;
+        }
+        .faq-item.active .faq-answer {
+            padding: 18px 24px;
+            max-height: 500px;
+            border-top: 1px solid #f0ebfa;
+        }
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+        /* 相关主题 */
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 20px;
+        }
+        .topic-tag {
+            background: white;
+            border: 1px solid #d6bcfa;
+            color: #6b46c1;
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: default;
+        }
+        .topic-tag:hover {
+            background: #7c3aed;
+            color: white;
+            border-color: #7c3aed;
+        }
+        /* 页脚 */
+        .site-footer {
+            background: #2d3748;
+            color: #cbd5e0;
+            padding: 40px 0 20px;
+            margin-top: 20px;
+        }
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            cursor: default;
+        }
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        .footer-copy {
+            font-size: 0.85rem;
+            color: #8e9aad;
+            border-top: 1px solid #4a5568;
+            padding-top: 20px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        /* 响应式 */
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .guide-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #6b46c1;
+                padding: 20px;
+                gap: 16px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            }
+            .main-nav.open {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .header-inner {
+                flex-wrap: wrap;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-sub {
+                font-size: 1.1rem;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            .guide-wrap {
+                padding: 25px;
+            }
+        }
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .guide-steps {
+                grid-template-columns: 1fr;
+            }
+            .hero-desc {
+                padding: 16px;
+                font-size: 0.95rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .footer-links {
+                gap: 16px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo-area">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">哔咔哔咔漫画</span>
+            </div>
+            <button class="menu-toggle" aria-label="菜单" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav" id="mainNav">
+                <a href="#home">首页</a>
+                <a href="#features">特色功能</a>
+                <a href="#guide">阅读指南</a>
+                <a href="#notice">注意事项</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 首屏 -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>哔咔哔咔漫画</h1>
+                <p class="hero-sub">二次元漫画爱好者的阅读乐园</p>
+                <div class="hero-desc">
+                    <strong>哔咔哔咔漫画</strong>是一个专注于提供丰富漫画资源的在线阅读平台，涵盖日漫、国漫、韩漫等多种类型。无论你喜欢热血冒险、恋爱喜剧还是悬疑推理，这里都能找到感兴趣的作品。平台以界面简洁、更新及时、分类清晰受到大量漫画读者的喜爱。
+                </div>
+                <a href="#guide" class="hero-btn">开始阅读之旅</a>
+            </div>
+        </section>
+
+        <!-- 核心功能 -->
+        <section class="section" id="features">
+            <div class="container">
+                <h2 class="section-title">平台核心特色</h2>
+                <p class="section-sub">了解哔咔哔咔漫画为何受欢迎</p>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">📖</div>
+                        <h3>海量漫画资源</h3>
+                        <p>收录大量热门及经典漫画作品，覆盖多种题材和风格，满足不同读者的喜好。分类细致，便于快速定位感兴趣的内容。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>即时更新同步</h3>
+                        <p>热门连载作品保持较高频次的更新，让读者能及时追读到最新章节，不错过任何精彩剧情发展。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>高清阅读体验</h3>
+                        <p>提供清晰的图片加载和舒适的阅读排版，支持多种阅读模式，适配手机与平板，随时随地畅快阅读。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>智能搜索与推荐</h3>
+                        <p>支持按名称、作者、标签等多维度搜索，同时根据阅读历史推荐相似作品，发现更多合口味的漫画。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">💾</div>
+                        <h3>离线缓存功能</h3>
+                        <p>支持将漫画章节缓存至本地，在没有网络的环境下也可以继续阅读，通勤路上、旅行途中都能随心看。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>活跃读者社区</h3>
+                        <p>读者可以在作品下留言讨论剧情、分享感受，形成良好的交流氛围，让阅读不再孤单。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阅读指南 -->
+        <section class="section" id="guide" style="background: #f1f5f9;">
+            <div class="container">
+                <h2 class="section-title">哔咔哔咔漫画使用指南</h2>
+                <p class="section-sub">快速上手，开启舒适阅读</p>
+                <div class="guide-wrap">
+                    <div class="guide-steps">
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <h4>访问平台</h4>
+                            <p>通过官方渠道获取哔咔哔咔漫画的网页或客户端，并确保网络环境稳定。</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <h4>浏览或搜索</h4>
+                            <p>在首页浏览推荐，或使用搜索框输入漫画名称、作者等关键词查找目标作品。</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">3</div>
+                            <h4>选择章节</h4>
+                            <p>进入作品详情页，查看简介、目录和更新状态，点击想阅读的章节开始阅读。</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">4</div>
+                            <h4>调整设置</h4>
+                            <p>根据个人偏好调整翻页方式、亮度、背景色等，也可以开启缓存以便离线阅读。</p>
+                        </div>
+                    </div>
+                    <div class="two-col" style="margin-top: 20px;">
+                        <div class="info-panel">
+                            <h3>📌 高效找漫画技巧</h3>
+                            <ul class="info-list">
+                                <li>利用标签组合筛选，例如“科幻 + 冒险”精确锁定类型。</li>
+                                <li>关注“编辑推荐”和“热门榜单”板块发现优质作品。</li>
+                                <li>善用历史记录功能，快速回到上次阅读的位置。</li>
+                                <li>按更新时间排序，第一时间看到最新章节推送。</li>
+                            </ul>
+                        </div>
+                        <div class="info-panel">
+                            <h3>💡 阅读体验优化建议</h3>
+                            <ul class="info-list">
+                                <li>在Wi-Fi环境下开启整部缓存，节省移动数据。</li>
+                                <li>使用夜间模式减少暗光环境下的眼睛疲劳。</li>
+                                <li>横屏模式适合阅读跨页大图或宽幅画面。</li>
+                                <li>定期清理缓存，释放设备存储空间。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 注意事项 -->
+        <section class="section" id="notice">
+            <div class="container">
+                <h2 class="section-title">使用注意事项</h2>
+                <p class="section-sub">安全、规范地使用漫画阅读平台</p>
+                <div class="notice-box">
+                    <h3>⚠️ 请读者留意以下事项</h3>
+                    <ul>
+                        <li>建议通过官方正规渠道下载应用或访问网页，避免使用来源不明的修改版，以防隐私泄露或财产损失。</li>
+                        <li>阅读时注意合理安排时间，避免长时间连续用眼，适当休息保护视力。</li>
+                        <li>部分漫画内容可能包含不适合未成年人阅读的题材，请监护人做好引导。</li>
+                        <li>尊重创作者版权，平台内作品仅供个人学习交流使用，请勿用于商业用途或非法传播。</li>
+                        <li>如果在使用过程中遇到链接失效、加载失败等问题，可尝试更换网络或稍后重试。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section" id="faq" style="background: #f1f5f9;">
+            <div class="container">
+                <h2 class="section-title">常见问题解答</h2>
+                <p class="section-sub">关于哔咔哔咔漫画你可能想知道的事</p>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">哔咔哔咔漫画的内容是免费的吗？</div>
+                        <div class="faq-answer">平台上的大部分漫画资源可以免费阅读，但部分特定内容或功能可能需要以积分、会员等形式解锁。具体规则以平台实际展示为准，请仔细阅读相关说明。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">漫画更新速度如何？</div>
+                        <div class="faq-answer">热门连载作品通常会在原作发布后较快同步更新，但不同作品的更新频率存在差异，受版权方、汉化组或平台排期影响，无法保证所有作品都实时同步。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">可以在电脑上使用哔咔哔咔漫画吗？</div>
+                        <div class="faq-answer">可以。哔咔哔咔漫画提供了网页版入口，通过浏览器即可访问阅读。同时部分功能在移动客户端上体验更佳，比如离线缓存和推送通知。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">如何反馈漫画链接失效或图片加载问题？</div>
+                        <div class="faq-answer">通常在作品详情页或阅读页设有反馈入口，也可以联系平台客服并提供具体作品名称和章节，以便工作人员快速排查修复。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">是否支持漫画下载后离线阅读？</div>
+                        <div class="faq-answer">支持。在移动客户端中，点击缓存或下载按钮即可将章节保存到本地，之后无需网络也能随时阅读。请注意定期清理不需要的缓存以节省空间。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 相关主题 -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">相关阅读主题</h2>
+                <p class="section-sub">你可能还对这些内容感兴趣</p>
+                <div class="topic-tags">
+                    <span class="topic-tag">热门日漫推荐</span>
+                    <span class="topic-tag">国漫崛起佳作</span>
+                    <span class="topic-tag">韩漫精选</span>
+                    <span class="topic-tag">经典完结漫画</span>
+                    <span class="topic-tag">治愈系漫画</span>
+                    <span class="topic-tag">热血战斗番</span>
+                    <span class="topic-tag">恋爱喜剧</span>
+                    <span class="topic-tag">悬疑推理</span>
+                    <span class="topic-tag">奇幻冒险</span>
+                    <span class="topic-tag">科幻宇宙</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-links">
+                <a>关于我们</a>
+                <a>版权声明</a>
+                <a>帮助中心</a>
+                <a>意见反馈</a>
+                <a>联系我们</a>
+            </div>
+            <div class="footer-copy">
+                © 2025 哔咔哔咔漫画阅读指南 · 本页面为信息分享与交流用途，请支持正版漫画
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        function toggleMenu() {
+            var nav = document.getElementById('mainNav');
+            nav.classList.toggle('open');
+        }
+
+        // FAQ 折叠展开
+        function toggleFaq(el) {
+            var item = el.parentElement;
+            var isActive = item.classList.contains('active');
+            // 关闭所有
+            var allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(function(it) {
+                it.classList.remove('active');
+            });
+            // 如果之前没激活，则打开当前
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
